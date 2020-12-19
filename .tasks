@@ -1,0 +1,194 @@
+# vim: set fenc=utf-8 ft=dosini:
+
+[build]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+# telling ninja to change to the build directory allows vim to do it too using the errorformat
+command=ninja -C build
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+# define a new task named "build-install"
+[build-install]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=ninja -C build install
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+# define a new task named "build-clean"
+[build-clean]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=ninja -C build clean
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+# define a new task named "build-test"
+[build-test]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=ninja -C build test
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+[cmake-build]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=mkdir -p build; cd build; cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_COMPILER_LAUNCHER=ccache ..
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+[cmake-build-release]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=mkdir -p build-release; cd build-release; cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_INSTALL_PREFIX=../install-release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_BUILD_TYPE=Release ..
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+[build-release]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=ninja -C build-release
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+[build-release-install]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=ninja -C build-release install
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
+
+[build-release-test]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=ninja -C build-release test
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=quickfix
+
+# this is for output=quickfix only
+# if it is omitted, vim's current errorformat will be used.
+# errorformat=%f:%l:%m
+
+# save file before execute
+# save=1
